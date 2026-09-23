@@ -6,7 +6,7 @@ class Solution {
         if(dp[n]!=-1){
             return dp[n];
         }
-        return fibbi(dp,n-1)+fibbi(dp,n-2);
+        return dp[n] = fibbi(dp,n-1)+fibbi(dp,n-2);
     }
     public int fib(int n) {
         int[] dp = new int[n+1];
