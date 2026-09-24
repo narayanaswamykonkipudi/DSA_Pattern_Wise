@@ -1,21 +1,12 @@
 class Solution {
-    private static int solve(int[] dp,int n){
-        if(n<=1) return 1;
-        
-        //memorization
-        if(dp[n]!=-1){
-            return dp[n];
-        }
-        //find the subproblem
-        return dp[n] = solve(dp,n-1)+solve(dp,n-2);
-    }
     public int climbStairs(int n) {
-        if(n<=1){
-            return 1;
+        int p2 = 1;
+        int p1 = 1;
+        for(int i=2;i<n+1;i++){
+            int temp = p1;
+            p1+=p2;
+            p2=temp;
         }
-        int dp[] = new int[n+1];
-        Arrays.fill(dp,-1);
-        solve(dp,n);
-        return dp[n];
+        return p1;
     }
 }
